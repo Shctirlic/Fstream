@@ -2,14 +2,56 @@
 #include <cmath> 
 #include <fstream>
 #include <string>
+#include <conio.h>
+#include "windows.h"
 using namespace std;
 
 void file_insert(string path, int pos, string str);
+
+const int tick = 100;
+int timer = 0;
+
+
+std::cout << "Введите число:";
+cin >> n;
+system(cls);
+std:: cout << "Число = " << n << endl;
+
 
 int main() {
 	setlocale(LC_ALL, "Russian");
 	int n;
 	string path = "file.txt";
+
+	char key;
+	while(true)
+		if (_kbhit) {
+			key = _getch();
+
+			switch (key) {
+			case 'A': case 'a':
+				std::cout << "LEFT\n";
+				break;
+			case 'D': case 'd':
+				std::cout << "RIGHT\n";
+				break;
+
+			}
+		}
+	cout << ".\n";
+
+	Sleep(tick);
+	timer += tick;
+
+	if (timer >= 1000) {
+		cout << ".\n";
+		timer = 0;
+	}
+
+	cout << "Вы нажали на " << key << endl;
+
+
+
 
 	/*string path = "File.txt";
 	fstream file;
@@ -44,7 +86,7 @@ int main() {
 
 	//Задача 1. Дата из файла
 
-	ifstream in;
+	/*ifstream in;
 	in.open("date.txt");
 
 	if (in.is_open()) {
@@ -67,7 +109,7 @@ int main() {
 	}
 	else
 
-	return 0;
+	return 0;*/
 }
 
 void file_insert(string path, int pos, string str){
